@@ -3,7 +3,7 @@ def CreateCommModel(TheModels, ExchangeRxnID):
     BoundsCommunityUptakeExport = {}
     for Mdl in TheModels:
         for Idx,Rxn in enumerate(Mdl[4]):
-            if Rxn.split('_')[0] == ExchangeRxnID:
+            if Rxn.startswith(ExchangeRxnID):
                 try: #(Exchanged metabolite,[Lower bound, upper bound, number of occurences of rxn])
                     BoundsCommunityUptakeExport[Rxn][1][0]+=Mdl[1][Idx]
                     BoundsCommunityUptakeExport[Rxn][1][1]+=Mdl[2][Idx]
